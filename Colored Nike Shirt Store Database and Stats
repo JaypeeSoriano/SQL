@@ -1,0 +1,18 @@
+CREATE TABLE store (id INTEGER PRIMARY KEY, item TEXT, price INTEGER, brand TEXT, purchase_date TEXT, sales_count TEXT);
+
+INSERT INTO store VALUES (1, "Red shirt", "12", "Nike", "2023-01-14", 2);
+INSERT INTO store VALUES (2, "Blue shirt", "10", "Nike", "2023-01-15", 5);
+INSERT INTO store VALUES (3, "Green shirt", "15", "Nike", "2023-01-08", 8);
+
+--display the database ordered by price.
+SELECT * FROM store
+ORDER BY price;
+
+--display the total sales count made. 
+SELECT SUM(sales_count) FROM store;
+
+--display how much does every shirt get sold. 
+SELECT 
+    item, 
+    sales_count, 
+    price * sales_count as 'sales_made ($)' FROM store;
